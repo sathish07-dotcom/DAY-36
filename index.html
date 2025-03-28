@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Local Storage & Global Storage (Session Storage)</h1>
+    <h3>In JavaScript, the concepts of **local storage** and **global storage** usually refer to different storage mechanisms that allow you to store data on the user's browser, with different scopes, lifetimes, and use cases. 
+</h3>
+  
+    <div class="div">
+    <h1>Local Storage</h1>
+    
+    <h3>Local Storage is part of the **Web Storage API** and allows web applications to store data in the browser. The data stored in Local Storage persists even after the browser is closed, and remains accessible for as long as the user does not explicitly delete it. It is **persistent**, **client-side**, and **synchronous**.
+    </h3>
+    <h2>Key characteristics:</h2>
+      <li>**Persistent storage**: Data does not expire and is available across sessions.</li>
+      <li>**Storage limit**: Typically around 5MB per origin (depends on the browser).</li>
+      <li> **Scope**: Data is accessible only within the same origin (same domain, protocol, and port).</li>
+      <li>**Synchronous API**: Access to local storage is synchronous (blocking).</li>
+    
+<p>
+    // Set an item in Local Storage <br>
+    localStorage.setItem('username', 'JohnDoe');<br>
+    
+    // Get an item from Local Storage<br>
+    let username = localStorage.getItem('username');<br>
+    console.log(username); // "JohnDoe"<br>
+    
+    // Remove an item from Local Storage<br>
+    localStorage.removeItem('username');<br>
+    
+    // Clear all items from Local Storage<br>
+    localStorage.clear();<br>
+    </p>
+    <li>**When to use Local Storage**: Local Storage is ideal for storing small amounts of data that you want to persist across sessions (like user preferences, theme settings, etc.).
+    </li>
+    </div>
+    <div class="div1">
+    <h1>Global Storage (Session Storage)</h1>
+  
+    <h3>Global Storage is a term that might sometimes be used to refer to **Session Storage**, though the terms can vary depending on context. **Session Storage** is also part of the **Web Storage API**, and it allows you to store data that is only available for the duration of the page session (i.e., as long as the browser tab is open). Once the tab is closed, the session data is deleted.
+    </h3>
+    <h2>Key characteristics:</h2>
+      <li>**Temporary storage**: Data is lost once the tab or browser window is closed.</li>
+      <li> **Storage limit**: Typically around 5MB per session (depends on the browser).</li>
+      <li> **Scope**: Data is only accessible within the same window/tab, and cannot be shared between tabs or windows.</li>
+      <li> **Synchronous API**: Like Local Storage, access to Session Storage is synchronous.</li>
+    
+ <p>
+    // Set an item in Session Storage <br>
+    sessionStorage.setItem('sessionUser', 'JaneDoe'); <br>
+    
+    // Get an item from Session Storage <br>
+    let sessionUser = sessionStorage.getItem('sessionUser'); <br>
+    console.log(sessionUser); // "JaneDoe" <br>
+    
+    // Remove an item from Session Storage <br>
+    sessionStorage.removeItem('sessionUser'); <br>
+    
+    // Clear all items from Session Storage <br>
+    sessionStorage.clear(); <br>
+  </p>
+    
+    <li>**When to use Session Storage**: Session Storage is perfect for temporary data that only needs to exist while the user is on a specific page (e.g., form data during the user's session).
+    </li>
+    <h2>Key Differences between Local Storage and Session Storage
+    </h2>
+<table border="2">
+  <tr>
+    <th>Feature</th>
+    <th>Local Storage</th>
+    <th>ssion Storage</th>
+  </tr>
+  <tr>
+    <th>**Persistence** </th>
+    <td> Data persists across sessions (until manually deleted) </td>
+    <td>Data is cleared once the browser tab is closed </td>
+  </tr>
+  <tr>
+    <th>**Storage limit**</th>
+    <td>Usually around 5MB per origin</td>
+    <td>Usually around 5MB per session </td>
+  </tr>
+  <tr>
+    <th> **Scope**</th>
+    <td>Accessible from any window or tab with the same origin </td>
+    <td>Accessible only within the same window or tab</td>
+  </tr>
+  <tr>
+    <th>**Use case**</th>
+    <td> For storing data that should persist across sessions (e.g., user preferences)</td>
+    <td>For storing temporary data during a single session (e.g., form data)</td>
+  </tr>
+  <tr>
+    <th> **Expiration**</th>
+    <td>Does not expire, stays until deleted </td>
+    <td>Expired once the tab is closed  </td>
+  </tr>
+</table>
+
+    
+
+    
+  <h1> Example of Use Cases:</h1>
+    
+    <h2> **Local Storage**:</h2>
+      <li>Storing a user’s theme preference (light/dark mode), so that it persists even when the user refreshes the page or returns to the site later.</li>
+      <li>Storing a session token for authentication purposes that should persist until the user logs out or clears their browser data.</li>
+    
+    <h2>**Session Storage**:</h2>
+      <li>Temporarily storing form data that the user might be filling out, which should be preserved during page navigation but erased when the tab is closed.</li>
+      <li>Storing temporary data that needs to be shared between multiple pages during a single session (but not across browser restarts).</li>
+    
+    <h2>Example of using both together:</h2>
+<p>
+    // Storing a user's settings in localStorage <br>
+    localStorage.setItem('theme', 'dark'); <br>
+    </p>
+    <p>
+    // Storing temporary form input in sessionStorage <br>
+    sessionStorage.setItem('formName', 'John'); <br>
+    sessionStorage.setItem('formEmail', 'john.doe@example.com'); <br>
+    </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
